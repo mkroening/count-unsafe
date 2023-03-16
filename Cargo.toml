@@ -1,0 +1,19 @@
+[package]
+name = "count-unsafe"
+version = "0.0.0"
+authors = ["Martin Kröning <mkroening@posteo.net>"]
+edition = "2021"
+description = "Recursively count unsafe Rust code in a given path."
+repository = "https://github.com/mkroening/count-unsafe"
+license = "MIT OR Apache-2.0"
+keywords = ["unsafe"]
+categories = ["development-tools"]
+
+[dependencies]
+anyhow = "1"
+cargo-geiger-serde = "0.2"
+clap = { version = "4", features = ["derive"] }
+geiger = "0.4"
+thiserror = "1"
+walkdir = "2"
+serde_json = "1"
