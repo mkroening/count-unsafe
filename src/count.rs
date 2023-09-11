@@ -36,7 +36,5 @@ pub fn find_unsafe_recursively(path: &Path) -> Result<CounterBlock, FindUnsafeEr
                     .map_err(FindUnsafeError::from)
             })
         })
-        .fold(Ok(CounterBlock::default()), |acc, x| {
-            acc.and_then(|acc| x.map(|x| acc + x))
-        })
+        .try_fold(CounterBlock::default(), |sum, x| x.map(|x| sum + x))
 }
